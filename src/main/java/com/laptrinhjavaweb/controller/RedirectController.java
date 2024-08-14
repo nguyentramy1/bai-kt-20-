@@ -7,8 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RedirectController {
 
-    @RequestMapping(value = "/")
-    public ModelAndView redirectToLogin() {
-        return new ModelAndView("redirect:/login");
+    @RequestMapping(value = "/ ")
+    public String redirectToLogin() {
+        return "";
     }
 }
