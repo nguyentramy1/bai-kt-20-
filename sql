@@ -41,8 +41,8 @@ CREATE TABLE product (
     gia_khuyen_mai DECIMAL(10, 2),
     url_anh VARCHAR(255),
     mo_ta TEXT,
-    danh_muc VARCHAR(255) NOT NULL, -- Đổi từ ENUM thành VARCHAR
-    trang_thai VARCHAR(255) NOT NULL -- Đổi từ ENUM thành VARCHAR
+    danh_muc VARCHAR(255) NOT NULL, 
+    trang_thai VARCHAR(255) NOT NULL 
 );
 
 
