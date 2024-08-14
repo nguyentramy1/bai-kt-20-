@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -24,21 +25,24 @@ public class ProductController {
     }
 
     @PostMapping("/add")
-    public String addProduct(@ModelAttribute ProductEntity product) {
+    public String addProduct(@ModelAttribute ProductEntity product, Model model) {
         productService.save(product);
-        return "redirect:/admin/products";
+        model.addAttribute("products", productService.findAll());
+        return "admin/home";
     }
 
     @PostMapping("/edit")
-    public String editProduct(@ModelAttribute ProductEntity product) {
+    public String editProduct(@ModelAttribute ProductEntity product, Model model) {
         productService.update(product);
-        return "redirect:/admin/products";
+        model.addAttribute("products", productService.findAll());
+        return "admin/home";
     }
 
     @PostMapping("/delete")
-    public String deleteProduct(@RequestParam("id") Integer id) {
+    public String deleteProduct(@RequestParam("id") Integer id, Model model) {
         productService.deleteById(id);
-        return "redirect:/admin/products";
+        model.addAttribute("products", productService.findAll());
+        return "admin/home";
     }
 
     @GetMapping("/{id}")
@@ -46,4 +50,7 @@ public class ProductController {
     public ProductEntity getProductById(@PathVariable("id") Integer id) {
         return productService.findById(id);
     }
+
+
+
 }
