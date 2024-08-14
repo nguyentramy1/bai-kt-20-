@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -207,7 +208,7 @@
                         <td>
                             <button class="btn btn-warning" onclick="showModal('editProductModal', ${product.id})">Sửa</button>
                             <button class="btn btn-danger" onclick="showModal('deleteProductModal', ${product.id})">Xóa</button>
-                            <button class="btn btn-info" onclick="showModal('viewProductModal', ${product.id})">Hiển thị</button>
+                            <button class="btn btn-info" onclick="showModal('viewProductModal', ${product.id} )">Hiển thị</button>
                         </td>
                     </tr>
                 </c:forEach>
